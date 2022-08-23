@@ -3,7 +3,6 @@ package com.victorskg.genosbankaccountcommand.application.commands;
 import com.victorskg.cqrseventsourcingcore.commands.AbstractCommand;
 import com.victorskg.genosbankaccountcommon.domain.AccountType;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
 
