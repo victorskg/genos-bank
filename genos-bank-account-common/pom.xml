@@ -17,11 +17,20 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!--Spring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <!--Internal-->
+        <dependency>
+            <groupId>com.victorskg</groupId>
+            <artifactId>cqrs-event-sourcing-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <!--Others-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
