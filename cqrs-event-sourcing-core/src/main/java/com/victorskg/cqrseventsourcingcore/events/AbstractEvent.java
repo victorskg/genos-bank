@@ -12,7 +12,7 @@ import lombok.Getter;
 @Getter
 public class AbstractEvent extends AbstractMessage {
 
-    private final int version;
+    protected final int version;
 
     public AbstractEvent(final String id, final int version) {
         super(id);

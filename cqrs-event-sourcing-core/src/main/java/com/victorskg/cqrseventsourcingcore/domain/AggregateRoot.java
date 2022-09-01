@@ -2,7 +2,6 @@ package com.victorskg.cqrseventsourcingcore.domain;
 
 import com.victorskg.cqrseventsourcingcore.events.AbstractEvent;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -15,16 +14,17 @@ import java.util.logging.Logger;
  * @author João Victor Claudino Felipe
  * @version 1.0 22/08/2022
  */
-@RequiredArgsConstructor
 public abstract class AggregateRoot {
 
     @Getter
-    protected final String id;
+    protected String id;
 
     @Getter
     @Setter
     private int version = -1;
+
     private final List<AbstractEvent> changes = new ArrayList<>();
+
     private final Logger logger = Logger.getLogger(AggregateRoot.class.getName());
 
     public List<AbstractEvent> getUncommittedChanges() {

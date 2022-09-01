@@ -16,6 +16,11 @@ public class FundsWithdrawnEvent extends AbstractEvent {
 
     private final BigDecimal amount;
 
+    public FundsWithdrawnEvent(final String id, final BigDecimal amount) {
+        super(id, 0);
+        this.amount = amount;
+    }
+
     public FundsWithdrawnEvent(final String id, final int version, final BigDecimal amount) {
         super(id, version);
         this.amount = amount;

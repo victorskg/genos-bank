@@ -30,4 +30,12 @@ public class AccountOpenedEvent extends AbstractEvent {
         this.creationDate = creationDate;
     }
 
+    public AccountOpenedEvent(final String id, final String accountHolder, final AccountType accountType, final BigDecimal openingBalance) {
+        super(id, 0);
+        this.accountHolder = accountHolder;
+        this.accountType = accountType;
+        this.openingBalance = openingBalance;
+        this.creationDate = LocalDate.now();
+    }
+
 }

@@ -12,5 +12,5 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public abstract class AbstractMessage {
-    private final String id;
+    protected final String id;
 }

@@ -12,6 +12,10 @@ import lombok.Getter;
 @Getter
 public class AccountClosedEvent extends AbstractEvent {
 
+    public AccountClosedEvent(final String id) {
+        super(id, 0);
+    }
+
     public AccountClosedEvent(final String id, final int version) {
         super(id, version);
     }
