@@ -45,6 +45,17 @@ public class AccountAggregate extends AggregateRoot {
         raiseEvent(new FundsWithdrawnEvent(id, amount));
     }
 
+    @Override
+    protected void apply(final AbstractEvent event) {
+        switch (event) {
+            case AccountOpenedEvent accountOpenedEvent -> apply(accountOpenedEvent);
+            case AccountClosedEvent accountClosedEvent -> apply(accountClosedEvent);
+            case FundsDepositedEvent fundsDepositedEvent -> apply(fundsDepositedEvent);
+            case FundsWithdrawnEvent fundsWithdrawnEvent -> apply(fundsWithdrawnEvent);
+            default -> throw new IllegalArgumentException(String.format("Unknown event type [%s]", event.getClass()));
+        }
+    }
+
     private void apply(final AccountOpenedEvent event) {
         this.id = event.getId();
         this.active = true;
@@ -64,17 +75,6 @@ public class AccountAggregate extends AggregateRoot {
     private void apply(final FundsWithdrawnEvent event) {
         this.id = event.getId();
         this.balance = this.balance.subtract(event.getAmount());
-    }
-
-    @Override
-    protected void apply(final AbstractEvent event) {
-        switch (event) {
-            case AccountOpenedEvent accountOpenedEvent -> apply(accountOpenedEvent);
-            case AccountClosedEvent accountClosedEvent -> apply(accountClosedEvent);
-            case FundsDepositedEvent fundsDepositedEvent -> apply(fundsDepositedEvent);
-            case FundsWithdrawnEvent fundsWithdrawnEvent -> apply(fundsWithdrawnEvent);
-            default -> throw new IllegalArgumentException(String.format("Unknown event type [%s]", event.getClass()));
-        }
     }
 
     private void verifyIfIsValidToOperate() {
