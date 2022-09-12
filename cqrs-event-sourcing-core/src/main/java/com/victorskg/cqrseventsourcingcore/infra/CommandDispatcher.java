@@ -7,6 +7,6 @@ public interface CommandDispatcher {
 
     <T extends AbstractCommand> void registerHandler(Class<T> type, CommandHandler<T> handler);
 
-    void dispatch(AbstractCommand command);
+    <T extends AbstractCommand> void dispatch(T command);
 
 }

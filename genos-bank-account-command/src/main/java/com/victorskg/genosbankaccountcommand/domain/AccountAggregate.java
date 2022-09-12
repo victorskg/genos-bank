@@ -42,6 +42,7 @@ public class AccountAggregate extends AggregateRoot {
     public void withdrawn(final BigDecimal amount) {
         verifyIfIsValidToOperate();
         verifyIfAmountIsValid(amount);
+        verifyIfHasSufficientFunds(amount);
         raiseEvent(new FundsWithdrawnEvent(id, amount));
     }
 
@@ -86,6 +87,12 @@ public class AccountAggregate extends AggregateRoot {
     private void verifyIfAmountIsValid(final BigDecimal amount) {
         if (amount.intValue() <= 0) {
             throw new IllegalArgumentException(String.format("Amount value %s should be greater than 0.", amount));
+        }
+    }
+
+    private void verifyIfHasSufficientFunds(final BigDecimal amount) {
+        if (balance.compareTo(amount) < 0) {
+            throw new IllegalStateException(String.format("Insufficient funds to withdrawn the amount of %d.", amount));
         }
     }
 

@@ -19,7 +19,7 @@ import static java.util.Objects.isNull;
 @Component
 public class AccountCommandDispatcher implements CommandDispatcher {
 
-    private final Map<Class<? extends AbstractCommand>, CommandHandler<? extends AbstractCommand>> commandHandlerStrategy = new HashMap<>();
+    private final Map<Class<? extends AbstractCommand>, CommandHandler> commandHandlerStrategy = new HashMap<>();
 
     @Override
     public <T extends AbstractCommand> void registerHandler(final Class<T> type, final CommandHandler<T> handler) {
@@ -27,7 +27,7 @@ public class AccountCommandDispatcher implements CommandDispatcher {
     }
 
     @Override
-    public void dispatch(final AbstractCommand command) {
+    public <T extends AbstractCommand> void dispatch(final T command) {
         final var handler = commandHandlerStrategy.get(command.getClass());
         if (isNull(handler)) throw new CommandHandlerNotRegisteredException(command.getClass().getName());
         handler.handle(command);
