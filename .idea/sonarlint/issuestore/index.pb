@@ -25,12 +25,8 @@ Q
 !genos-bank-account-common/pom.xml,f/8/f8851ae7f631c79fbd9f538e45554a97df4b2d11
 ®
 ~genos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/infra/CommandHandlerNotRegisteredException.java,f/d/fd5437b3b3f9f7a379cb8c7cda0b0a0a1aa51369
-—
-gcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/commands/CommandHandler.java,1/6/162ac8d405f9aa23813184fc8e5d7520859bc7f5
 ¢
 rgenos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/infra/AccountCommandDispatcher.java,1/4/14b209780efa9a39ab855ce5702b3ded91b6aea8
-—
-gcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/infra/CommandDispatcher.java,0/9/09244fa20cb5cbb773d3a8cadaa2adc06496b633
 ˜
 hcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/messages/AbstractMessage.java,0/f/0fd42cbf2427b09ebe8000720dabcc1dc1324374
 «
@@ -50,3 +46,9 @@ kgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/ev
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+Œ
+\cqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/events/Event.java,7/1/719f4c60599880c2739d10e3378fc242f619d1b2
+Ÿ
+ogenos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/domain/EventStoreRepository.java,c/7/c7ce168b44ec99c01639683025582679121c0c09
+›
+kgenos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/domain/AccountAggregate.java,2/6/26df1255508fdb7c493320878275bfdc52c620a9
