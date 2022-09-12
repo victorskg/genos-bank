@@ -21,18 +21,10 @@ Q
 !genos-bank-account-common/pom.xml,f/8/f8851ae7f631c79fbd9f538e45554a97df4b2d11
 ®
 ~genos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/infra/CommandHandlerNotRegisteredException.java,f/d/fd5437b3b3f9f7a379cb8c7cda0b0a0a1aa51369
-˜
-hcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/messages/AbstractMessage.java,0/f/0fd42cbf2427b09ebe8000720dabcc1dc1324374
 «
 {genos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/application/commands/OpenAccountCommand.java,1/0/10d346292b88f54bd4feb180fc7a6a4ce65b38ee
-”
-dcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/events/AbstractEvent.java,2/8/28143154a3493128bbac3f811c0e7eb44d565844
-œ
-lgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/events/FundsDepositedEvent.java,b/4/b42903934131787407bb522efef4dd7096eef83e
 ›
 kgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/events/AccountClosedEvent.java,8/e/8e53da52f4c5c0d6bdb41c0e77b701ce2ae6a247
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-Œ
-\cqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/events/Event.java,7/1/719f4c60599880c2739d10e3378fc242f619d1b2

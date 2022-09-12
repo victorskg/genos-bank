@@ -1,6 +1,6 @@
 package com.victorskg.cqrseventsourcingcore.domain;
 
-import com.victorskg.cqrseventsourcingcore.events.AbstractEvent;
+import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,11 +23,11 @@ public abstract class AggregateRoot {
     @Setter
     private int version = -1;
 
-    private final List<AbstractEvent> changes = new ArrayList<>();
+    private final List<BaseEvent> changes = new ArrayList<>();
 
     private final Logger logger = Logger.getLogger(AggregateRoot.class.getName());
 
-    public List<AbstractEvent> getUncommittedChanges() {
+    public List<BaseEvent> getUncommittedChanges() {
         return changes;
     }
 
@@ -35,18 +35,18 @@ public abstract class AggregateRoot {
         changes.clear();
     }
 
-    protected void applyChanges(final AbstractEvent event, final boolean isNewEvent) {
+    protected void applyChanges(final BaseEvent event, final boolean isNewEvent) {
         apply(event);
         if (isNewEvent) changes.add(event);
     }
 
-    protected abstract void apply(final AbstractEvent event);
+    protected abstract void apply(final BaseEvent event);
 
-    public void raiseEvent(final AbstractEvent event) {
+    public void raiseEvent(final BaseEvent event) {
         applyChanges(event, true);
     }
 
-    public void replyEvents(final Iterable<AbstractEvent> events) {
+    public void replyEvents(final Iterable<BaseEvent> events) {
         events.forEach(event -> applyChanges(event, false));
     }
 

@@ -31,6 +31,6 @@ public class Event {
 
     private String type;
 
-    private AbstractEvent data;
+    private BaseEvent data;
 
 }

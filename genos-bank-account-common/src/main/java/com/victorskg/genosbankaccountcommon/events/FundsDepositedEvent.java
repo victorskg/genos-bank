@@ -1,6 +1,6 @@
 package com.victorskg.genosbankaccountcommon.events;
 
-import com.victorskg.cqrseventsourcingcore.events.AbstractEvent;
+import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import lombok.Getter;
 
 import java.math.BigDecimal;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @version 1.0 22/08/2022
  */
 @Getter
-public class FundsDepositedEvent extends AbstractEvent {
+public class FundsDepositedEvent extends BaseEvent {
 
     private final BigDecimal amount;
 

@@ -1,6 +1,6 @@
 package com.victorskg.genosbankaccountcommon.events;
 
-import com.victorskg.cqrseventsourcingcore.events.AbstractEvent;
+import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import com.victorskg.genosbankaccountcommon.domain.AccountType;
 import lombok.Getter;
 
@@ -14,7 +14,7 @@ import java.time.LocalDate;
  * @version 1.0 22/08/2022
  */
 @Getter
-public class AccountOpenedEvent extends AbstractEvent {
+public class AccountOpenedEvent extends BaseEvent {
 
     private final String accountHolder;
     private final AccountType accountType;

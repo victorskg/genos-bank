@@ -1,7 +1,7 @@
 package com.victorskg.genosbankaccountcommand.infra;
 
 import com.victorskg.cqrseventsourcingcore.domain.EventSourcingHandler;
-import com.victorskg.cqrseventsourcingcore.events.AbstractEvent;
+import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import com.victorskg.cqrseventsourcingcore.infra.EventStore;
 import com.victorskg.genosbankaccountcommand.domain.AccountAggregate;
 import lombok.RequiredArgsConstructor;
@@ -42,9 +42,9 @@ public class AccountEventSourcingHandler implements EventSourcingHandler<Account
         return aggregate;
     }
 
-    private void replyEventsOnAggregate(final List<AbstractEvent> events, final AccountAggregate aggregate) {
+    private void replyEventsOnAggregate(final List<BaseEvent> events, final AccountAggregate aggregate) {
         aggregate.replyEvents(events);
-        final var latestVersion = events.stream().map(AbstractEvent::getVersion).max(Comparator.naturalOrder()).orElse(0);
+        final var latestVersion = events.stream().map(BaseEvent::getVersion).max(Comparator.naturalOrder()).orElse(0);
         aggregate.setVersion(latestVersion);
     }
 

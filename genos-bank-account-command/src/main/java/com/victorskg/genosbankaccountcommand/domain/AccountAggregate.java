@@ -1,7 +1,7 @@
 package com.victorskg.genosbankaccountcommand.domain;
 
 import com.victorskg.cqrseventsourcingcore.domain.AggregateRoot;
-import com.victorskg.cqrseventsourcingcore.events.AbstractEvent;
+import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import com.victorskg.genosbankaccountcommand.application.commands.OpenAccountCommand;
 import com.victorskg.genosbankaccountcommon.events.AccountClosedEvent;
 import com.victorskg.genosbankaccountcommon.events.AccountOpenedEvent;
@@ -47,7 +47,7 @@ public class AccountAggregate extends AggregateRoot {
     }
 
     @Override
-    protected void apply(final AbstractEvent event) {
+    protected void apply(final BaseEvent event) {
         switch (event) {
             case AccountOpenedEvent accountOpenedEvent -> apply(accountOpenedEvent);
             case AccountClosedEvent accountClosedEvent -> apply(accountClosedEvent);

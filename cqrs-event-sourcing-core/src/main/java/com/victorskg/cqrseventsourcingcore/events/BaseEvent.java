@@ -10,13 +10,18 @@ import lombok.Getter;
  * @version 1.0 22/08/2022
  */
 @Getter
-public class AbstractEvent extends AbstractMessage {
+public class BaseEvent extends AbstractMessage {
 
-    protected final int version;
+    protected int version;
 
-    public AbstractEvent(final String id, final int version) {
+    public BaseEvent(final String id, final int version) {
         super(id);
         this.version = version;
+    }
+
+    public BaseEvent withVersion(final int version) {
+        this.version = version;
+        return this;
     }
 
 }

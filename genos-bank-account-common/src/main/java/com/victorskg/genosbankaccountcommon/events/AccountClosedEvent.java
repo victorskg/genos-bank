@@ -1,6 +1,6 @@
 package com.victorskg.genosbankaccountcommon.events;
 
-import com.victorskg.cqrseventsourcingcore.events.AbstractEvent;
+import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import lombok.Getter;
 
 /**
@@ -10,7 +10,7 @@ import lombok.Getter;
  * @version 1.0 22/08/2022
  */
 @Getter
-public class AccountClosedEvent extends AbstractEvent {
+public class AccountClosedEvent extends BaseEvent {
 
     public AccountClosedEvent(final String id) {
         super(id, 0);
