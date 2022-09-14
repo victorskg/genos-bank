@@ -31,8 +31,6 @@ kgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/ev
 î
 dcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/domain/AggregateRoot.java,3/e/3e8f13909b02f820bd64efcccad59b748ad59dd8
 õ
-kgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/events/AccountOpenedEvent.java,5/0/50c3b071544ff83500d48df34d682919af810180
-õ
 kcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/domain/EventSourcingHandler.java,2/b/2b764e99585c054b950dab12bb2655f2be7cea0c
 ú
 lgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/events/FundsWithdrawnEvent.java,e/c/ecce1e5a40400332f375e98021c8b08f3d3f587a
@@ -68,8 +66,6 @@ lgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/ev
 \cqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/events/Event.java,7/1/719f4c60599880c2739d10e3378fc242f619d1b2
 ò
 hcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/messages/AbstractMessage.java,0/f/0fd42cbf2427b09ebe8000720dabcc1dc1324374
-ê
-`cqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/events/BaseEvent.java,0/4/04d3568a9e05132a88f13ec7a1b20d0c4875ca72
 õ
 kgenos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/infra/AccountEventStore.java,e/5/e5ee863b6a4a8e897c62ecda10769d506d399e9b
 ü
