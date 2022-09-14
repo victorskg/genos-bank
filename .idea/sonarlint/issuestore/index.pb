@@ -70,3 +70,17 @@ lgenos-bank-account-common/src/main/java/com/victorskg/genosbankaccountcommon/ev
 hcqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/messages/AbstractMessage.java,0/f/0fd42cbf2427b09ebe8000720dabcc1dc1324374
 ê
 `cqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/events/BaseEvent.java,0/4/04d3568a9e05132a88f13ec7a1b20d0c4875ca72
+õ
+kgenos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/infra/AccountEventStore.java,e/5/e5ee863b6a4a8e897c62ecda10769d506d399e9b
+ü
+ogenos-bank-account-command/src/main/java/com/victorskg/genosbankaccountcommand/domain/EventStoreRepository.java,c/7/c7ce168b44ec99c01639683025582679121c0c09
+P
+ genos-bank-account-query/pom.xml,a/e/ae1ceadf9bfb4a2f81247d574f6445bb9a700c95
+ú
+lgenos-bank-account-query/src/main/java/com/victorskg/genosbankaccountquery/domain/BankAccountRepository.java,8/1/81cf7f1120650f0bf14e30f36fde3242f3c14908
+ë
+acqrs-event-sourcing-core/src/main/java/com/victorskg/cqrseventsourcingcore/domain/BaseEntity.java,e/d/ed79a25957bfc0fd3fede0c000aafed606edf2a8
+Æ
+~genos-bank-account-query/src/main/java/com/victorskg/genosbankaccountquery/domain/exceptions/BankAccountNotFoundException.java,b/b/bbdbe0fb20faae071581bdbf73f9adb551bb7738
+í
+bgenos-bank-account-query/src/main/java/com/victorskg/genosbankaccountquery/domain/BankAccount.java,2/5/25f461cc57b5db5049bed279a1889a7d5f75d1c6

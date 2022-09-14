@@ -2,9 +2,11 @@ package com.victorskg.genosbankaccountquery.domain;
 
 import com.victorskg.cqrseventsourcingcore.domain.BaseEntity;
 import com.victorskg.genosbankaccountcommon.domain.AccountType;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,6 +21,9 @@ import java.time.LocalDateTime;
  */
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class BankAccount extends BaseEntity {
 
@@ -32,5 +37,13 @@ public class BankAccount extends BaseEntity {
     private AccountType type;
 
     private BigDecimal balance;
+
+    public void deposit(final BigDecimal amount) {
+        this.balance = balance.add(amount);
+    }
+
+    public void withdrawn(final BigDecimal amount) {
+        this.balance = balance.subtract(amount);
+    }
 
 }
