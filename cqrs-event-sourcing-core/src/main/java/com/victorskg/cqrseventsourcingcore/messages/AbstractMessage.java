@@ -1,7 +1,8 @@
 package com.victorskg.cqrseventsourcingcore.messages;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 /**
  * Class that represents an abstract message
@@ -10,7 +11,10 @@ import lombok.RequiredArgsConstructor;
  * @version 1.0 22/08/2022
  */
 @Getter
-@RequiredArgsConstructor
+@Setter
+@AllArgsConstructor
 public abstract class AbstractMessage {
-    protected final String id;
+
+    protected String id;
+
 }

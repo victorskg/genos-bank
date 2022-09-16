@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static java.util.Objects.nonNull;
+
 /**
  * Account event store
  *
@@ -54,9 +56,11 @@ public class AccountEventStore implements EventStore {
     }
 
     private int extractCurrentVersion(final List<Event> currentEvents, final int expectedVersion) {
-        final var lastEventIndex = currentEvents.size() - 1;
-        final var currentVersion = currentEvents.get(lastEventIndex).getVersion();
-        if (currentVersion != expectedVersion) throw new ConcurrencyException(expectedVersion);
+        if (nonNull(currentEvents) && !currentEvents.isEmpty()) {
+            final var lastEventIndex = currentEvents.size() - 1;
+            final var currentVersion = currentEvents.get(lastEventIndex).getVersion();
+            if (currentVersion != expectedVersion) throw new ConcurrencyException(expectedVersion);
+        }
         return expectedVersion;
     }
 

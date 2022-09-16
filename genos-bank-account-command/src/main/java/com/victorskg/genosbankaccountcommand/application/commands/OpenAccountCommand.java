@@ -19,6 +19,10 @@ public class OpenAccountCommand extends AbstractCommand {
     private final AccountType accountType;
     private final BigDecimal openingBalance;
 
+    private OpenAccountCommand() {
+        this(null, null, null, null);
+    }
+
     public OpenAccountCommand(final String id, final String accountHolder, final AccountType accountType, final BigDecimal openingBalance) {
         super(id);
         this.accountHolder = accountHolder;

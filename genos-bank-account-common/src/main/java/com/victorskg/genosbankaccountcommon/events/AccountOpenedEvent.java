@@ -21,6 +21,10 @@ public class AccountOpenedEvent extends BaseEvent {
     private final BigDecimal openingBalance;
     private final LocalDate creationDate;
 
+    private AccountOpenedEvent() {
+        this(null, 0, null, null, null, null);
+    }
+
     public AccountOpenedEvent(final String id, final int version, final String accountHolder, final AccountType accountType,
         final BigDecimal openingBalance, final LocalDate creationDate) {
         super(id, version);
