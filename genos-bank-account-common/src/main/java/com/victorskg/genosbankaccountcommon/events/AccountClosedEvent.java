@@ -2,6 +2,7 @@ package com.victorskg.genosbankaccountcommon.events;
 
 import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import lombok.Getter;
+import org.springframework.data.annotation.PersistenceCreator;
 
 /**
  * Bank account closed event
@@ -20,6 +21,7 @@ public class AccountClosedEvent extends BaseEvent {
         super(id, 0);
     }
 
+    @PersistenceCreator
     public AccountClosedEvent(final String id, final int version) {
         super(id, version);
     }
