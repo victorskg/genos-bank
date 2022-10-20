@@ -4,6 +4,7 @@ import com.victorskg.cqrseventsourcingcore.domain.EventSourcingHandler;
 import com.victorskg.genosbankaccountcommand.domain.AccountAggregate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Class responsible for handling account commands
@@ -18,12 +19,14 @@ public class AccountCommandHandler implements CommandHandler {
     private final EventSourcingHandler<AccountAggregate> eventSourcingHandler;
 
     @Override
+    @Transactional
     public void handle(final OpenAccountCommand command) {
         final var aggregate = new AccountAggregate(command);
         eventSourcingHandler.save(aggregate);
     }
 
     @Override
+    @Transactional
     public void handle(final CloseAccountCommand command) {
         final var aggregate = eventSourcingHandler.getById(command.getId());
         aggregate.close();
@@ -31,6 +34,7 @@ public class AccountCommandHandler implements CommandHandler {
     }
 
     @Override
+    @Transactional
     public void handle(final WithdrawFundsCommand command) {
         final var aggregate = eventSourcingHandler.getById(command.getId());
         aggregate.withdrawn(command.getAmount());
@@ -38,6 +42,7 @@ public class AccountCommandHandler implements CommandHandler {
     }
 
     @Override
+    @Transactional
     public void handle(final DepositFundsCommand command) {
         final var aggregate = eventSourcingHandler.getById(command.getId());
         aggregate.deposit(command.getAmount());

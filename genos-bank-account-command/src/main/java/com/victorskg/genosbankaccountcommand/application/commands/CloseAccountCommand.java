@@ -10,7 +10,7 @@ import com.victorskg.cqrseventsourcingcore.commands.AbstractCommand;
  */
 public class CloseAccountCommand extends AbstractCommand {
 
-    protected CloseAccountCommand(final String id) {
+    public CloseAccountCommand(final String id) {
         super(id);
     }
 

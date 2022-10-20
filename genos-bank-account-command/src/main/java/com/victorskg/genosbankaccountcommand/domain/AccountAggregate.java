@@ -92,7 +92,7 @@ public class AccountAggregate extends AggregateRoot {
 
     private void verifyIfHasSufficientFunds(final BigDecimal amount) {
         if (balance.compareTo(amount) < 0) {
-            throw new IllegalStateException(String.format("Insufficient funds to withdrawn the amount of %d.", amount));
+            throw new IllegalStateException(String.format("Insufficient funds to withdrawn the amount of %s.", amount));
         }
     }
 

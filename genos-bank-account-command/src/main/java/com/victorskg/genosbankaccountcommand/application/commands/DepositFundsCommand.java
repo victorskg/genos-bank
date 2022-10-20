@@ -16,6 +16,10 @@ public class DepositFundsCommand extends AbstractCommand {
 
     private final BigDecimal amount;
 
+    private DepositFundsCommand() {
+        this(null, null);
+    }
+
     public DepositFundsCommand(final String id, final BigDecimal amount) {
         super(id);
         this.amount = amount;

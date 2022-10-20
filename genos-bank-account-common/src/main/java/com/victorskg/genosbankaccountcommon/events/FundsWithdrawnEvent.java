@@ -2,6 +2,7 @@ package com.victorskg.genosbankaccountcommon.events;
 
 import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import lombok.Getter;
+import org.springframework.data.annotation.PersistenceCreator;
 
 import java.math.BigDecimal;
 
@@ -16,11 +17,16 @@ public class FundsWithdrawnEvent extends BaseEvent {
 
     private final BigDecimal amount;
 
+    private FundsWithdrawnEvent() {
+        this(null, null);
+    }
+
     public FundsWithdrawnEvent(final String id, final BigDecimal amount) {
         super(id, 0);
         this.amount = amount;
     }
 
+    @PersistenceCreator
     public FundsWithdrawnEvent(final String id, final int version, final BigDecimal amount) {
         super(id, version);
         this.amount = amount;

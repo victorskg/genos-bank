@@ -3,6 +3,7 @@ package com.victorskg.genosbankaccountcommon.events;
 import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import com.victorskg.genosbankaccountcommon.domain.AccountType;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,12 +15,13 @@ import java.time.LocalDate;
  * @version 1.0 22/08/2022
  */
 @Getter
+@Setter
 public class AccountOpenedEvent extends BaseEvent {
 
-    private final String accountHolder;
-    private final AccountType accountType;
-    private final BigDecimal openingBalance;
-    private final LocalDate creationDate;
+    private String accountHolder;
+    private AccountType accountType;
+    private BigDecimal openingBalance;
+    private LocalDate creationDate;
 
     private AccountOpenedEvent() {
         this(null, 0, null, null, null, null);

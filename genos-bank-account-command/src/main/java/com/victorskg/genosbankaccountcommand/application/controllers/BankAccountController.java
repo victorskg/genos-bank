@@ -8,7 +8,9 @@ import com.victorskg.genosbankaccountcommand.application.commands.WithdrawFundsC
 import com.victorskg.genosbankaccountcommand.application.controllers.dto.BankAccountOpenedResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,20 +47,22 @@ public class BankAccountController {
 
     @ResponseStatus(NO_CONTENT)
     @PatchMapping("{id}/deposit")
-    public void depositFunds(@RequestBody final DepositFundsCommand depositFundsCommand) {
+    public void depositFunds(@PathVariable("id") final String id, @RequestBody final DepositFundsCommand depositFundsCommand) {
+        depositFundsCommand.setId(id);
         accountCommandDispatcher.dispatch(depositFundsCommand);
     }
 
     @ResponseStatus(NO_CONTENT)
     @PatchMapping("{id}/withdrawn")
-    public void withdrawnFunds(@RequestBody final WithdrawFundsCommand withdrawFundsCommand) {
+    public void withdrawnFunds(@PathVariable("id") final String id, @RequestBody final WithdrawFundsCommand withdrawFundsCommand) {
+        withdrawFundsCommand.setId(id);
         accountCommandDispatcher.dispatch(withdrawFundsCommand);
     }
 
     @ResponseStatus(NO_CONTENT)
-    @PatchMapping("{id}/close")
-    public void close(@RequestBody final CloseAccountCommand closeAccountCommand) {
-        accountCommandDispatcher.dispatch(closeAccountCommand);
+    @DeleteMapping("{id}")
+    public void close(@PathVariable("id") final String id) {
+        accountCommandDispatcher.dispatch(new CloseAccountCommand(id));
     }
 
 }
