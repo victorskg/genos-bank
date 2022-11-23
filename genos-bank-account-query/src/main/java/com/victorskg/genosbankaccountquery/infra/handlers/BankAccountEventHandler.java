@@ -6,7 +6,7 @@ import com.victorskg.genosbankaccountcommon.events.FundsDepositedEvent;
 import com.victorskg.genosbankaccountcommon.events.FundsWithdrawnEvent;
 import com.victorskg.genosbankaccountquery.domain.BankAccount;
 import com.victorskg.genosbankaccountquery.domain.BankAccountRepository;
-import com.victorskg.genosbankaccountquery.domain.exceptions.BankAccountNotFoundException;
+import com.victorskg.genosbankaccountquery.domain.exceptions.BankAccountNotFoundByIdException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,7 +58,7 @@ public class BankAccountEventHandler implements EventHandler {
     }
 
     private BankAccount findById(final String id) {
-        return repository.findById(id).orElseThrow(() -> new BankAccountNotFoundException(id));
+        return repository.findById(id).orElseThrow(() -> new BankAccountNotFoundByIdException(id));
     }
 
 }
