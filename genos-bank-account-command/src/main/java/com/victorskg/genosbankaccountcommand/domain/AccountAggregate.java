@@ -7,6 +7,7 @@ import com.victorskg.genosbankaccountcommon.events.AccountClosedEvent;
 import com.victorskg.genosbankaccountcommon.events.AccountOpenedEvent;
 import com.victorskg.genosbankaccountcommon.events.FundsDepositedEvent;
 import com.victorskg.genosbankaccountcommon.events.FundsWithdrawnEvent;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -20,6 +21,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class AccountAggregate extends AggregateRoot {
 
+    @Getter
     private boolean active;
 
     private BigDecimal balance;

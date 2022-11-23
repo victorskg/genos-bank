@@ -4,6 +4,7 @@ import com.victorskg.cqrseventsourcingcore.infra.CommandDispatcher;
 import com.victorskg.genosbankaccountcommand.application.commands.CloseAccountCommand;
 import com.victorskg.genosbankaccountcommand.application.commands.DepositFundsCommand;
 import com.victorskg.genosbankaccountcommand.application.commands.OpenAccountCommand;
+import com.victorskg.genosbankaccountcommand.application.commands.RestoreStateCommand;
 import com.victorskg.genosbankaccountcommand.application.commands.WithdrawFundsCommand;
 import com.victorskg.genosbankaccountcommand.application.controllers.dto.BankAccountOpenedResponse;
 import lombok.RequiredArgsConstructor;
@@ -63,6 +64,12 @@ public class BankAccountController {
     @DeleteMapping("{id}")
     public void close(@PathVariable("id") final String id) {
         accountCommandDispatcher.dispatch(new CloseAccountCommand(id));
+    }
+
+    @PostMapping("restore")
+    @ResponseStatus(CREATED)
+    public void restoreState() {
+        accountCommandDispatcher.dispatch(new RestoreStateCommand());
     }
 
 }

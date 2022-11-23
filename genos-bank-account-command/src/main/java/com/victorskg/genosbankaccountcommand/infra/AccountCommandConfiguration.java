@@ -5,6 +5,7 @@ import com.victorskg.genosbankaccountcommand.application.commands.CloseAccountCo
 import com.victorskg.genosbankaccountcommand.application.commands.CommandHandler;
 import com.victorskg.genosbankaccountcommand.application.commands.DepositFundsCommand;
 import com.victorskg.genosbankaccountcommand.application.commands.OpenAccountCommand;
+import com.victorskg.genosbankaccountcommand.application.commands.RestoreStateCommand;
 import com.victorskg.genosbankaccountcommand.application.commands.WithdrawFundsCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,7 @@ class AccountCommandConfiguration {
         accountCommandDispatcher.registerHandler(CloseAccountCommand.class, accountCommandHandler::handle);
         accountCommandDispatcher.registerHandler(DepositFundsCommand.class, accountCommandHandler::handle);
         accountCommandDispatcher.registerHandler(WithdrawFundsCommand.class, accountCommandHandler::handle);
+        accountCommandDispatcher.registerHandler(RestoreStateCommand.class, accountCommandHandler::handle);
     }
 
 }

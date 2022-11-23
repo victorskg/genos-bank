@@ -3,6 +3,7 @@ package com.victorskg.genosbankaccountcommand.infra;
 import com.victorskg.cqrseventsourcingcore.domain.EventSourcingHandler;
 import com.victorskg.cqrseventsourcingcore.events.BaseEvent;
 import com.victorskg.cqrseventsourcingcore.infra.EventStore;
+import com.victorskg.cqrseventsourcingcore.producers.EventProducer;
 import com.victorskg.genosbankaccountcommand.domain.AccountAggregate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ import static java.util.Objects.nonNull;
 public class AccountEventSourcingHandler implements EventSourcingHandler<AccountAggregate> {
 
     private final EventStore eventStore;
+    private final EventProducer accountEventProducer;
 
     @Override
     public void save(final AccountAggregate aggregateRoot) {
@@ -40,6 +42,19 @@ public class AccountEventSourcingHandler implements EventSourcingHandler<Account
         }
 
         return aggregate;
+    }
+
+    @Override
+    public void republishEvents() {
+        final var aggregateIds = eventStore.getAggregateIds();
+        aggregateIds.stream().map(this::getById)
+            .filter(AccountAggregate::isActive)
+            .forEach(this::raiseEvents);
+    }
+
+    private void raiseEvents(final AccountAggregate aggregate) {
+        final var events = eventStore.findAllByAggregateId(aggregate.getId());
+        events.forEach(e -> accountEventProducer.produce(e.getClass().getSimpleName(), e));
     }
 
     private void replyEventsOnAggregate(final List<BaseEvent> events, final AccountAggregate aggregate) {

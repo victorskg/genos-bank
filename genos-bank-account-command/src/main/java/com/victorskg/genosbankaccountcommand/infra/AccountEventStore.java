@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.nonNull;
 
@@ -40,6 +41,15 @@ public class AccountEventStore implements EventStore {
     public List<BaseEvent> findAllByAggregateId(final String aggregateId) {
         var eventStream = eventStoreRepository.findAllByAggregateId(aggregateId);
         return eventStream.stream().map(Event::getData).toList();
+    }
+
+    @Override
+    public List<String> getAggregateIds() {
+        return eventStoreRepository.findAll()
+            .stream()
+            .map(Event::getAggregateId)
+            .distinct()
+            .toList();
     }
 
     private void saveEvent(final String aggregateId, final int currentVersion, final BaseEvent event) {

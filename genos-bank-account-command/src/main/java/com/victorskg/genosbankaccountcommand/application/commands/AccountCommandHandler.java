@@ -49,4 +49,9 @@ public class AccountCommandHandler implements CommandHandler {
         eventSourcingHandler.save(aggregate);
     }
 
+    @Override
+    public void handle(final RestoreStateCommand command) {
+        eventSourcingHandler.republishEvents();
+    }
+
 }

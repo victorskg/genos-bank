@@ -10,4 +10,6 @@ public interface CommandHandler {
 
     void handle(final DepositFundsCommand command);
 
+    void handle(final RestoreStateCommand command);
+
 }
